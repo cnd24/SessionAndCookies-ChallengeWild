@@ -16,11 +16,7 @@ if (isset($_GET['add_to_cart'])) {
 <?php require 'inc/data/products.php'; ?>
 <?php require 'inc/head.php'; ?>
 <div style="text-align: center">
-    <?php if (empty($_SESSION['loginname'])) : ?>
-        <a href="login.php">
-            <button type="button" class="btn btn-primary btn-lg">Login</button>
-        </a>
-    <?php else: ?>
+    <?php if (!empty($_SESSION['loginname'])) : ?>
         <p> Bienvenue <?= $_SESSION['loginname'] ?> </p>
     <?php endif ?>
 </div>
@@ -40,15 +36,6 @@ if (isset($_GET['add_to_cart'])) {
                 </figure>
             </div>
         <?php } ?>
-    </div>
-</section>
-<section>
-    <div>
-        <?php if (isset($_SESSION['loginname'])) : ?>
-            <a href="login.php">
-                <button name="logout" type="button" class="btn btn-primary btn-lg">Logout</button>
-            </a>
-        <?php endif ?>
     </div>
 </section>
 <?php require 'inc/foot.php'; ?>
