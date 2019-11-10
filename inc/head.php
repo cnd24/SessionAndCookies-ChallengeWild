@@ -43,11 +43,24 @@
                             Cart
                         </a>
                     </li>
+                    <li>
+                        <?php if (empty($_SESSION['loginname'])) : ?>
+                            <a href="/login.php" class="btn btn-success">Login</a>
+                        <?php endif ?>
+                    </li>
+
+                    <li>
+                        <?php if (isset($_SESSION['loginname'])) : ?>
+                            <a href="/login.php" class="btn btn-danger">Logout</a>
+                        <?php endif ?>
+                    </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
     <div class="container-fluid text-right">
-        <strong>Hello <?php if (isset($_SESSION['loginname'])){ echo $_SESSION['loginname']; } ?> !</strong>
+        <strong>Hello <?php if (isset($_SESSION['loginname'])) {
+                echo $_SESSION['loginname'];
+            } ?> !</strong>
     </div>
 </header>
